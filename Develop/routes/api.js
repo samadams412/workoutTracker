@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Workout = require("../models/exerciseModel");
 
-// Creating a new workout
+// Creating new workout
 router.post("/api/workouts", (req, res) => {
   Workout.create({
       exercises: []
@@ -14,7 +14,7 @@ router.post("/api/workouts", (req, res) => {
     })
 });
 
-// Adding an exercise to our workout using exerciseModel.js
+// Adding an exercise workout using exerciseModel.js
 router.put("/api/workouts/:id", ({
   body,
   params
@@ -42,7 +42,7 @@ router.put("/api/workouts/:id", ({
     })
 });
 
-// Fetching all of our workouts
+// Fetching all workouts
 router.get("/api/workouts", (req, res) => {
   Workout.find()
     .then(dbWorkout => {
@@ -53,7 +53,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-// Getting all of our workouts within range, for the stats page.
+// Getting all workouts within range
 router.get("/api/workouts/range", (req, res) => {
   Workout.find({})
   .sort({ "day": -1 })

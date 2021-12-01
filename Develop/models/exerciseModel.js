@@ -52,7 +52,7 @@ const ExerciseSchema = new Schema(
   }
 );
 
-// This gives us the total duration of our exercises for each workout
+// total duration of our exercises for each workout
 
 ExerciseSchema.virtual("totalDuration").get(function () {
   return this.exercises.reduce((total, exercise) => {
