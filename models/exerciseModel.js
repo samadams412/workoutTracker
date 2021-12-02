@@ -19,15 +19,12 @@ const ExerciseSchema = new Schema(
         name: {
           type: String,
           trim: true,
-          unique: true,
           required: "You must name this exercise",
         },
         duration: {
           type: Number,
           required: "Please enter the duration of this exercise",
         },
-
-        // We will not require exercises that are specific to only cardio or resistance
 
         weight: {
           type: Number,
@@ -51,8 +48,7 @@ const ExerciseSchema = new Schema(
   }
 );
 
-// total duration of our exercises for each workout
-
+// total duration
 ExerciseSchema.virtual("totalDuration").get(function () {
   return this.exercises.reduce((total, exercise) => {
     return total + exercise.duration;
@@ -61,4 +57,4 @@ ExerciseSchema.virtual("totalDuration").get(function () {
 
 const Workout = mongoose.model("Exercise", ExerciseSchema);
 
-module.exports =  Workout;
+module.exports =  Workout ;
